@@ -17,8 +17,13 @@ const app = http.createServer(async (req, res) => {
 
     try {
       const students = await countStudents(dbFilePath);
+      res.setHeader("Content-Length", students.length);
+      res.setHeader("Content-Type", "text/plain");
+      res.statusCode = 200;
       res.end(students);
     } catch (error) {
+        res.statusCode = 404;
+        res.setHeader("Content-Type", "text/plain");
         res.end(error.message);
     }
     
