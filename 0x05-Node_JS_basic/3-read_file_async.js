@@ -1,13 +1,13 @@
-const fs = require("fs");
+const fs = require("fs").promises;
 
 /**
  * Read file
  * @param {string} path - Path to file
  */
 
-function countStudents(path) {
+async function countStudents(path) {
   try {
-    const data = fs.readFileSync(path, "utf-8");
+    const data = await fs.readFile(path, "utf-8");
     const lines = data.split("\n");
 
     const validLines = lines.filter((line) => line.trim() !== "").slice(1);
