@@ -1,6 +1,6 @@
-const chai = require('chai');
+const chai = require("chai");
 const expect = chai.expect;
-const calculateNumber = require("./1-calcul");
+const calculateNumber = require("./2-calcul_chai");
 
 describe("calculateNumber", function () {
   it("should return 4", function () {
@@ -11,6 +11,9 @@ describe("calculateNumber", function () {
   });
   it("should return 7.5", function () {
     expect(calculateNumber("DIVIDE", 15, 2)).to.equal(7.5);
+  });
+  it("should return Error", function () {
+    expect(calculateNumber("DIVIDE", 0, 0)).to.equal("Error");
   });
   it('should return "Error"', function () {
     expect(calculateNumber("DIVIDE", 15, 0)).to.equal("Error");
