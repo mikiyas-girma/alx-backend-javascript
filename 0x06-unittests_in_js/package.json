@@ -5,7 +5,7 @@
     "main": "index.js",
     "type": "module",
     "scripts": {
-        "test": "npx mocha"
+        "test": "node ./node_modules/mocha/bin/mocha --exit"
     },
     "repository": {
         "type": "git",
