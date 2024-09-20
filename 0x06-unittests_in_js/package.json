@@ -5,21 +5,23 @@
     "main": "index.js",
     "type": "module",
     "scripts": {
-      "test": "npx mocha"
+        "test": "npx mocha"
     },
     "repository": {
-      "type": "git",
-      "url": "https://github.com/mikiyas-girma/alx-backend-javascript/0x06-unittests_in_js"
+        "type": "git",
+        "url": "https://github.com/mikiyas-girma/alx-backend-javascript/0x06-unittests_in_js"
     },
     "keywords": [
-      "testing",
-      "unittest",
-      "mocha",
-      "chai",
-      "stub",
-      "mock"
+        "testing",
+        "unittest",
+        "mocha",
+        "chai",
+        "stub",
+        "mock"
     ],
     "author": "mikiyas girma <mikiyasgirmaet@gmail.com>",
-    "license": "MIT"
-  }
-  
+    "license": "MIT",
+    "devDependencies": {
+        "mocha": "^10.7.3"
+    }
+}
