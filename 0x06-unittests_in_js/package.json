@@ -3,7 +3,6 @@
     "version": "1.0.0",
     "description": "0x06. Unittests in JS project as part of alx backend specialization",
     "main": "index.js",
-    "type": "module",
     "scripts": {
         "test": "node ./node_modules/mocha/bin/mocha --exit"
     },
