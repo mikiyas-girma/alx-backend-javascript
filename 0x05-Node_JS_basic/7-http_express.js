@@ -7,7 +7,7 @@ const PORT = 1234;
 app.get('/', (_, res) => {
   res.setHeader('Content-Type', 'text/plain');
   res.statusCode = 200;
-  res.send('Hello Holberton School');
+  res.send('Hello Holberton School!');
 });
 
 app.get('/students', async (req, res) => {
