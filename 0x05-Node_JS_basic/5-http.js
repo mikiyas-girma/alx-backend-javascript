@@ -18,7 +18,8 @@ const app = http.createServer(async (req, res) => {
       res.write('This is the list of our students\n');
       res.end(students);
     } catch (error) {
-      res.writeHead(500, { 'Content-Type': 'text/plain' });
+      res.writeHead(404, { 'Content-Type': 'text/plain' });
+      res.write('This is the list of our students\n');
       res.end('Cannot load the database');
     }
   } else {
