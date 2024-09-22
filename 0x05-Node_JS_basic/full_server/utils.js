@@ -1,36 +1,26 @@
-import fs from 'fs';
+const { readFile } = require('fs');
 
-const readDatabase = (filepath) => new Promise((resolve, reject) => {
-  if (!filepath) {
-    reject(new Error('Cannot load the database'));
-  }
-  if (filepath) {
-    fs.readFile(filepath, 'utf-8', (err, data) => {
+module.exports = function readDatabase(filePath) {
+  const students = {};
+  return new Promise((resolve, reject) => {
+    readFile(filePath, (err, data) => {
       if (err) {
-        reject(new Error('Cannot load the database'));
-      }
-      if (data) {
-        const fileLines = data.trim().split('\n');
-        const studGroups = {};
-        const fieldNames = fileLines[0].split(',');
-        const studPropValues = fieldNames.slice(0, fieldNames.length - 1);
-
-        for (const line of fileLines.slice(1)) {
-          const studValues = line.split(',');
-          const stud = {};
-          for (let i = 0; i < studPropValues.length; i++) {  // eslint-disable-line
-            stud[studPropValues[i]] = studValues[i];
+        reject(err);
+      } else {
+        const lines = data.toString().split('\n');
+        const content = lines.slice(1);
+        for (let i = 0; i < content.length; i += 1) {
+          if (content[i]) {
+            const field = content[i].toString().split(',');
+            if (Object.prototype.hasOwnProperty.call(students, field[3])) {
+              students[field[3]].push(field[0]);
+            } else {
+              students[field[3]] = [field[0]];
+            }
           }
-          const group = studValues[studValues.length - 1];
-          if (!studGroups[group]) {
-            studGroups[group] = [];
-          }
-          studGroups[group].push(stud);
         }
-        resolve(studGroups);
+        resolve(students);
       }
     });
-  }
-});
-
-export default readDatabase;
+  });
+};
