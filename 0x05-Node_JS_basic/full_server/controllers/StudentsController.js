@@ -12,7 +12,7 @@ class StudentsController {
       }
       res.status(200).send(output.join('\n'));
     }).catch(() => {
-      res.status(500).send('Cannot load the database yyy');
+      res.status(500).send('Cannot load the database');
     });
   }
 
